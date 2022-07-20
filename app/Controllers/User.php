@@ -35,6 +35,10 @@ class User extends BaseController
         $key_diary = $user['key_diary'] ? $user['key_diary'] : '';
         $decrypt=base64_decode($key_diary);
         }
+
+        if(in_groups('admin')) {
+        $valiKeyDiary = $user['key_diary'];
+        }
         $data = [
             'title' => 'Edit My Profile',
             'validation' => \Config\Services::validation(),
